@@ -1,5 +1,8 @@
 //https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/
 //滑动窗口的最大值
+package Week_02
+
+import "math"
 
 func maxSlidingWindow(nums []int, k int) []int {
 	//fmt.Println(nums, k)
@@ -22,4 +25,31 @@ func max(nums []int) int {
 		}
 	}
 	return max
+}
+
+
+
+
+func MaxSlidingWindow2(nums []int, k int) []int {
+	result := make([]int, 0)
+
+	if len(nums) == 0 {
+		return result
+	}
+
+	window := NewMoQueue()
+
+	for i := 0; i < len(nums); i++ {
+
+		if i < k-1 { // 将k-1部分先入队
+			window.Push(nums[i])
+		} else {
+			window.Push(nums[i])
+			result = append(result, window.Max())
+			window.Pop(nums[i-k+1]) // 将窗口最左边元素弹出
+		}
+
+	}
+	return result
+
 }

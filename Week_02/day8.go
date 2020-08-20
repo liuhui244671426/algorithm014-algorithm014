@@ -1,5 +1,6 @@
 //两个数组的交集
 //https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/
+package Week_02
 
 func intersect(nums1 []int, nums2 []int) []int {
 	var ma map[int]int
