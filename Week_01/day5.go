@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package Week_01
 
 // 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
 
@@ -20,51 +18,44 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func main() {
-	// l1 := &ListNode{
-	// 	Val: 1,
-	// 	Next: &ListNode{
-	// 		Val: 2,
-	// 		Next: &ListNode{
-	// 			Val:  4,
-	// 			Next: nil,
-	// 		},
-	// 	},
-	// }
-	// l2 := &ListNode{
-	// 	Val: 1,
-	// 	Next: &ListNode{
-	// 		Val: 3,
-	// 		Next: &ListNode{
-	// 			Val:  4,
-	// 			Next: nil,
-	// 		},
-	// 	},
-	// }
+// func main() {
+// l1 := &ListNode{
+// 	Val: 1,
+// 	Next: &ListNode{
+// 		Val: 2,
+// 		Next: &ListNode{
+// 			Val:  4,
+// 			Next: nil,
+// 		},
+// 	},
+// }
+// l2 := &ListNode{
+// 	Val: 1,
+// 	Next: &ListNode{
+// 		Val: 3,
+// 		Next: &ListNode{
+// 			Val:  4,
+// 			Next: nil,
+// 		},
+// 	},
+// }
 
-	// mergeTwoLists(l1, l2)
+// mergeTwoLists(l1, l2)
 
-	nums := []int{0, 1, 0, 3, 12}
-	moveZeroes(nums)
-}
+//nums := []int{2, 3, 4, 5, 18, 17, 6}
+//nums := []int{1, 8, 6, 2, 5, 4, 8, 3, 7}
+//ret := maxArea(nums)
+//fmt.Println(ret)
 
-func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
-	node := l1
-	for node.Next != nil {
-		fmt.Println(node.Val)
-		node = node.Next
-	}
-	return nil
-}
+// 	b := intersect([]int{1, 2, 2, 1}, []int{2, 2})
+// 	fmt.Println(b)
+// }
 
-func moveZeroes(nums []int) {
-	fmt.Println(nums)
-	//j := 0
-	for i := 0; i < len(nums)-1; i++ {
-		if nums[i] == 0 {
-			nums[i], nums[i+1] = nums[i+1], nums[i]
-			//i = i + 1
-		}
-	}
-	fmt.Println(nums)
-}
+// func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+// 	node := l1
+// 	for node.Next != nil {
+// 		fmt.Println(node.Val)
+// 		node = node.Next
+// 	}
+// 	return nil
+// }

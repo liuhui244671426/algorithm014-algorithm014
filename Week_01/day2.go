@@ -1,5 +1,9 @@
+package Week_01
+
+import "fmt"
+
 func plusOne(digits []int) []int {
-    count := len(digits)
+	count := len(digits)
 	n := 1
 	fmt.Println(digits)
 	for i := count; i > 0; i-- {
@@ -15,4 +19,8 @@ func plusOne(digits []int) []int {
 		digits = append([]int{n}, digits...)
 	}
 	return digits
+}
+
+func PlusOne(digits []int) []int {
+	return plusOne(digits)
 }

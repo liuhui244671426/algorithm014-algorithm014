@@ -1,5 +1,11 @@
+package Week_01
+
+func TwoSum(nums []int, target int) []int {
+	return twoSum(nums, target)
+}
+
 func twoSum(nums []int, target int) []int {
-	
+
 	leng := len(nums)
 	var ret []int
 	for i := 0; i < leng; i++ {
@@ -23,4 +29,4 @@ func helper_twoSum(nums []int, start int, target int) int {
 		}
 	}
 	return 0
-}	
+}
