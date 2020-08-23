@@ -4,12 +4,23 @@
 // 数学概念: 数根
 package Week_02
 
+import "fmt"
+
 func addDigits(num int) int {
 	root := (num-1)%9 + 1
 	//fmt.Println(root)
 	return root
 }
 
+func addDigits2(num int) int {
+
+	for num >= 10 {
+		num = num % 10
+		fmt.Println(num)
+		num = num / 10
+	}
+	return num
+}
 func AddDigits(num int) int {
-	return addDigits(num)
+	return addDigits2(num)
 }
