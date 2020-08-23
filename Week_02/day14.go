@@ -75,6 +75,7 @@ func preorderTraversal2(root *TreeNode) []int {
 	}
 	return res
 }
+
 //
 func preorderTraversal3(root *TreeNode) []int {
 	var result []int = []int{}
@@ -92,3 +93,5 @@ func helper(root *TreeNode, result *[]int) {
 	helper(root.Right, result)
 
 }
+
+
