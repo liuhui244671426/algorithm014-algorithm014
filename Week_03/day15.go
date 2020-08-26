@@ -1,10 +1,8 @@
 package Week_03
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+import (
+	. "homework/Mstruct"
+)
 
 func inorderTraversal(root *TreeNode) []int {
 	var stack []*TreeNode

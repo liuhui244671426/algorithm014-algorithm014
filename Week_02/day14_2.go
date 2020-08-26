@@ -4,18 +4,17 @@ package Week_02
 //层序遍历
 //队列 先进先出
 //bfs+queue
-type Node struct {
-	Val      int
-	Children []*Node
-}
+import (
+	. "homework/Mstruct"
+)
 
-func levelOrder(root *Node) [][]int {
+func levelOrder(root *QueueNode) [][]int {
 	if root == nil {
 		return nil
 	}
 
-	var queue []*Node  //队列
-	var result [][]int //结果
+	var queue []*QueueNode //队列
+	var result [][]int     //结果
 
 	queue = append(queue, root)
 

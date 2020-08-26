@@ -10,7 +10,9 @@ package Week_02
  *     Right *TreeNode
  * }
  */
-
+import (
+	. "homework/Mstruct"
+)
 
 //左-根-右
 //中序遍历,左链入栈

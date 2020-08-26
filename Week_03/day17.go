@@ -1,19 +1,15 @@
 package Week_03
+
 //https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/
 //从尾到头打印链表
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
+import (
+	. "homework/Mstruct"
+)
+/*
+*	思路,利用栈的先进后出,准备两个栈,颠倒顺序
+*
+*/
 func reversePrint(head *ListNode) []int {
 	var stack []int
 	var reverseStack []int

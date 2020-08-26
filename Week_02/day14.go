@@ -1,10 +1,8 @@
 package Week_02
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+import (
+	. "homework/Mstruct"
+)
 
 //关键点1：使用栈来模拟遍历的顺序，根据栈的先入后出的特点，入栈的顺序跟遍历的顺序相反，这样出栈的时候就可以得到想要的顺序
 //关键点2：每一次循环的入栈按照顺序完成之后，在顶层加一个标志位nil,下一个循环如果碰到标识位，则把标识位的下一个节点弹出，这样就能保证弹出的顺序是：中左右
