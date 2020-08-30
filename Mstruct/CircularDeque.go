@@ -1,8 +1,8 @@
 package Mstruct
 
-type MyCircularDeque struct {
+type CircularDeque struct {
 	Val    int
-	Next   *MyCircularDeque
-	Priv   *MyCircularDeque
+	Next   *CircularDeque
+	Priv   *CircularDeque
 	Length int
 }
