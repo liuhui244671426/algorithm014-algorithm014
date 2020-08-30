@@ -13,7 +13,7 @@ func permute(nums []int) [][]int {
 }
 
 func backtrack2(nums []int, nums2 []int, visited []bool) {
-
+	//终止条件
 	if len(nums) == len(nums2) {
 		tmp := make([]int, len(nums))
 		copy(tmp, nums2)
@@ -21,7 +21,7 @@ func backtrack2(nums []int, nums2 []int, visited []bool) {
 		result = append(result, tmp)
 		return
 	}
-
+	//当前层逻辑
 	for i := 0; i < len(nums); i++ {
 		//进入未访问
 		if !visited[i] {
@@ -30,7 +30,7 @@ func backtrack2(nums []int, nums2 []int, visited []bool) {
 			//3.撤销选择
 			visited[i] = true
 			nums2 = append(nums2, nums[i]) 
-			backtrack2(nums, nums2, visited)
+			backtrack2(nums, nums2, visited) //下一层
 			
 			nums2 = nums2[:len(nums2)-1]
 			visited[i] = false
