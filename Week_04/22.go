@@ -1,7 +1,5 @@
 package Week_04
 
-import "fmt"
-
 //括号生成
 
 func GenerateParenthesis() []string {
