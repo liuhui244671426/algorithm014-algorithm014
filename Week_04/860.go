@@ -1,6 +1,7 @@
 package Week_04
 
 //柠檬水找零
+//思路:贪心法,有 10 用 10,无 10 用 5
 func LemonadeChange() bool {
 	var bills []int = []int{10, 10}
 	return lemonadeChange(bills)
