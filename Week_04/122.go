@@ -10,19 +10,11 @@ func MaxProfit() int {
 }
 
 func maxProfit(prices []int) int {
-	j := 0 //slow ptr
 	var x int
 	for i := 1; i < len(prices); i++ {
-		//fmt.Println(j, i)
-		if prices[j] > prices[i] {
-			j = i
-			continue
+		if prices[i-1] < prices[i] {
+			x += prices[i] - prices[i-1]
 		}
-
-		x += prices[i] - prices[j]
-		j = i
-
 	}
-	//fmt.Println(x)
 	return x
 }
