@@ -16,6 +16,7 @@ func subarraySum(nums []int, k int) int {
 	count, pre := 0, 0
 	m := map[int]int{}
 	m[0] = 1 //对于下标为 0 的元素，前缀和为 0，个数为 1
+	fmt.Println("pre, count, pre-k, m")
 	for i := 0; i < len(nums); i++ {
 		pre += nums[i]
 
@@ -23,7 +24,7 @@ func subarraySum(nums []int, k int) int {
 			count += m[pre-k]
 		}
 		m[pre] += 1
-		fmt.Println("pre, m, count, pre-k", pre, m, count, pre-k)
+		fmt.Println(pre, count, pre-k, m)
 	}
 	return count
 }
