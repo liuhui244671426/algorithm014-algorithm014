@@ -1,4 +1,4 @@
-package WeeK_06
+package Week_06
 
 //跳跃游戏 II
 func Jump() int {
