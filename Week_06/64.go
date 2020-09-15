@@ -18,7 +18,14 @@ func MinPathSum() int {
 }
 
 //再次基础上可以将空间复杂度再降一降,不申明 dp 变量,直接修改 grid 变量即可
-//动态规划
+
+/*
+动态规划
+解题思路:
+1.只会向下或向右
+2.最短路径是 x-1 + x | y-1 + y 的值
+*/
+//
 func minPathSum(grid [][]int) int {
 	// var dp [][]int = make([][]int, len(grid))
 	// for k, v := range grid {
