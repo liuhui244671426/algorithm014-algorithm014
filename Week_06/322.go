@@ -20,7 +20,7 @@ func CoinChange() int {
 
 	coins = []int{10, 7, 1}
 	amount = 14
-	return coinChange(coins, amount)
+	return coinChange1(coins, amount)
 }
 
 /*
@@ -59,9 +59,9 @@ func print(s [][]int) {
 	}
 }
 
-/*
-//贪心算法:在有些情况下,失败!需改进
-func coinChange(coins []int, amount int) int {
+//*
+//贪心算法:在有些情况下(10, 7, 1 | 找 14 , 贪心会计算出 10+1+1+1+1 而不是 7+7),失败!需改进
+func coinChange1(coins []int, amount int) int {
 	var nums int = 0
 	var i = len(coins) - 1 //多种面额
 	sort.Ints(coins)       //从大到小排序
@@ -85,14 +85,15 @@ func coinChange(coins []int, amount int) int {
 	}
 	return nums
 }
-*/
+
+//*/
 
 /*
 贪心+递归
 */
 var ans int
 
-func coinChange(coins []int, amount int) int {
+func coinChange2(coins []int, amount int) int {
 	ans = math.MaxInt32
 	//fmt.Println(coins, amount)
 	sort.Ints(coins)                              //从大到小排序
