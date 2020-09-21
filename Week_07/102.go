@@ -31,7 +31,7 @@ func LevelOrder() [][]int {
 /*
 思路:
 可通过 BFS 或 前序遍历 实现.其中前序遍历,之前有做过,所以这次实现 BFS
-BFS 实现层序遍历的话,需要队列辅助
+BFS 实现层序遍历的话,需要队列辅助, 由于应用场景简单,不需要引入 list 包
 */
 func levelOrder(root *TreeNode) [][]int {
 
