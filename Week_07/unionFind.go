@@ -4,15 +4,6 @@ package Week_07
 并查集
 */
 
-//连通分量个数
-// var count int
-
-//节点 x 的父节点是parent[x]
-// var parent []int
-
-//让树平衡,这里称为重量
-// var size []int
-
 type UnionFind struct {
 	count  int   //连通分量个数
 	parent []int //节点 x 的父节点是parent[x]
@@ -44,7 +35,6 @@ func (uf *UnionFind) Union(p, q int) {
 		return
 	}
 	//parent[P_root] = Q_root //或者是 parent[Q_root] = P_root
-
 	//小树接到大树下面，较平衡,将树的高度减少从而减少时间复杂度到O(logN)
 	if uf.size[P_root] > uf.size[Q_root] {
 		uf.parent[Q_root] = P_root
@@ -58,7 +48,6 @@ func (uf *UnionFind) Union(p, q int) {
 
 /*
 查找某个节点的根节点
-
 Find()依赖树的高度,如果树退化成了链表复杂度会变成O(N),时间复杂度O(longN)~O(N)卡住了性能,所以要对 find() 进行路径压缩优化
 */
 func (uf *UnionFind) Find(x int) int {
