@@ -7,22 +7,22 @@ package Week_07
 type UnionFind struct {
 	count  int   //连通分量个数
 	parent []int //节点 x 的父节点是parent[x]
-	size   []int //让树平衡,这里称为重量
+	weight []int //让树平衡,这里称为重量
 }
 
 // 一切从这里开始
 func (uf *UnionFind) New(n int) *UnionFind {
 	_parent := make([]int, n)
-	_size := make([]int, n)
+	_weight := make([]int, n)
 
 	for i := 0; i < n; i++ {
 		_parent[i] = i //建立树
-		_size[i] = 1   //重量应该初始化 1
+		_weight[i] = 1 //重量应该初始化 1
 	}
 	return &UnionFind{
 		count:  n, //连通分量是元素个数,因为初始化个元素各自是一个集合
 		parent: _parent,
-		size:   _size,
+		weight: _weight,
 	}
 }
 
@@ -36,12 +36,12 @@ func (uf *UnionFind) Union(p, q int) {
 	}
 	//parent[P_root] = Q_root //或者是 parent[Q_root] = P_root
 	//小树接到大树下面，较平衡,将树的高度减少从而减少时间复杂度到O(logN)
-	if uf.size[P_root] > uf.size[Q_root] {
+	if uf.weight[P_root] > uf.weight[Q_root] {
 		uf.parent[Q_root] = P_root
-		uf.size[P_root] += uf.size[Q_root]
+		uf.weight[P_root] += uf.weight[Q_root]
 	} else {
 		uf.parent[P_root] = Q_root
-		uf.size[Q_root] += uf.size[P_root]
+		uf.weight[Q_root] += uf.weight[P_root]
 	}
 	uf.count-- //合并一次,连通分量减少一个
 }
