@@ -20,12 +20,10 @@ func ladderLength(beginWord string, endWord string, wordList []string) int {
 	var node string
 	var visited map[string]bool = make(map[string]bool)
 	var queue []string = []string{beginWord}
-
 	for len(queue) > 0 {
 		size := len(queue)
 		count += 1
 		for i := 0; i < size; i++ {
-
 			node = queue[0]
 			queue = queue[1:]
 			// fmt.Println("queue node", queue, node)
@@ -40,15 +38,12 @@ func ladderLength(beginWord string, endWord string, wordList []string) int {
 				if node == endWord || isCan(node, endWord) == 1 {
 					return count + 1
 				}
-
 				visited[node] = true
 				visited[w] = true
 				queue = append(queue, w)
 			}
-
 		}
 	}
-
 	return 0
 }
 
