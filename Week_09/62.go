@@ -5,7 +5,7 @@ package Week_09
 func UniquePaths() int {
 	var m int = 3
 	var n int = 7
-	return uniquePaths1(m, n)
+	return uniquePaths(m, n)
 }
 
 /*
