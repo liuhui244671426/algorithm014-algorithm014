@@ -20,7 +20,7 @@ func UniquePathsWithObstacles() int {
 	fmt.Println("init", obstacleGrid)
 	return uniquePathsWithObstacles(obstacleGrid)
 }
-
+//todo 进一步压缩空间复杂度, 将obstacleGrid变成 dp
 func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 	var rows int = len(obstacleGrid)
 	var cols int = len(obstacleGrid[0])
