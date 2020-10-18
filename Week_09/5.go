@@ -8,7 +8,8 @@ func LongestPalindrome() string {
 	s = "aacabdkacaa"
 	return longestPalindrome(s)
 }
-//时间复杂度O(n^2),空间复杂度 O(n^2),还可以优化
+
+//时间复杂度O(n^2),空间复杂度 O(n^2),还可以优化,了解Manacher's算法
 func longestPalindrome(s string) string {
 	if s == "" {
 		return ""
