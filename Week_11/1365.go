@@ -7,7 +7,7 @@ func SmallerNumbersThanCurrent() []int {
 	nums = []int{8, 1, 2, 2, 3}
 	return smallerNumbersThanCurrent(nums)
 }
-
+//todo 优化可以用计数排序
 func smallerNumbersThanCurrent(nums []int) []int {
 	var res []int
 
