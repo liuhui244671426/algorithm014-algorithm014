@@ -10,7 +10,7 @@ func Sort() []int {
 	nums = []int{5, 2, 34, 1, 2, 4, 54, 2, 3, 4, 5, 65, 6}
 	fmt.Println("input : ", nums)
 	//r := quickSort(nums, 0, len(nums)-1)
-	r := bucketSort(nums)
+	r := shellSort(nums)
 	return r
 }
 
@@ -168,9 +168,47 @@ func partition(nums []int, left int, right int) int { //分区操作
 	return index - 1
 }
 
-//需要借助 container/heap 包实现,大顶堆
-//todo 10 月 12 号完成
+/*
+需要借助 container/heap 包实现,大顶堆
+
+todo debug
+*/
 func heapSort(nums []int) []int {
+	nums = buildMaxHeap(nums)
+	fmt.Println("build:  ", nums)
+	len := len(nums)
+	for i := len - 1; i > 0; i-- {
+		nums[0], nums[i] = nums[i], nums[0] //swap
+		len--
+		nums = heapify(nums, 0)
+		fmt.Println("heapify ", nums)
+	}
+	return nums
+}
+
+/*创建大顶堆*/
+func buildMaxHeap(nums []int) []int {
+	len := len(nums)
+	for i := int(math.Floor(float64(len >> 1))); i >= 0; i-- {
+		nums = heapify(nums, i)
+	}
+	return nums
+}
+
+/*堆调整*/
+func heapify(nums []int, i int) []int {
+	var left, right, largest int = 2*i + 1, 2*i + 2, i
+	len := len(nums)
+	if left < len && nums[left] > nums[largest] {
+		largest = left
+	}
+	if right < len && nums[right] > nums[largest] {
+		largest = right
+	}
+	if largest != i {
+		nums[i], nums[largest] = nums[largest], nums[i] //swap
+		heapify(nums, largest)
+	}
 	return nums
 }
 
@@ -251,4 +289,52 @@ func bucketSort(nums []int) []int {
 		}
 	}
 	return result
+}
+
+/*
+希尔排序
+*/
+func shellSort(nums []int) []int {
+	length := len(nums)
+	gap := 1
+	for gap > 0 {
+		for i := gap; i < length; i++ {
+			temp := nums[i]
+			j := i - gap
+			for j >= 0 && nums[j] > temp {
+				nums[j+gap] = nums[j]
+				j -= gap
+			}
+			nums[j+gap] = temp
+		}
+		gap = gap / 3
+	}
+	return nums
+}
+
+/*
+基数排序
+todo 10.15
+*/
+func radixSort(nums []int) []int {
+	var mod int = 10
+	var dev int = 1
+	var max int = 99999
+	var counter [][]int = make([][]int, 10)
+	for i := 0; i < max; i++ {
+
+		for j := 0; j < len(nums); j++ {
+
+			bucket := (nums[j] % mod) / dev
+			fmt.Println(nums[j], mod, dev, bucket)
+			if counter[bucket] == nil {
+				counter[bucket] = make([]int, 10)
+			}
+			counter[bucket] = append(counter[bucket], nums[j])
+		}
+		dev *= 10
+		mod *= 10
+	}
+
+	return nums
 }
