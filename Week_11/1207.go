@@ -1,7 +1,5 @@
 package Week_11
 
-import "fmt"
-
 //1207. 独一无二的出现次数
 
 func UniqueOccurrences() bool {
