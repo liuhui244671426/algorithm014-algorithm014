@@ -10,7 +10,7 @@ func Sort() []int {
 	nums = []int{5, 2, 34, 1, 2, 4, 54, 2, 3, 4, 5, 65, 6}
 	fmt.Println("input : ", nums)
 	//r := quickSort(nums, 0, len(nums)-1)
-	r := shellSort(nums)
+	r := radixSort(nums)
 	return r
 }
 
@@ -314,27 +314,73 @@ func shellSort(nums []int) []int {
 
 /*
 基数排序
-todo 10.15
+基数排序是按照低位先排序，然后收集；再按照高位排序，然后再收集；依次类推，直到最高位。有时候有些属性是有优先级顺序的，
+先按低优先级排序，再按高优先级排序。最后的次序就是高优先级高的在前，高优先级相同的低优先级高的在前。
+
+10.1 算法描述
+取得数组中的最大数，并取得位数；
+arr为原始数组，从最低位开始取每个位组成radix数组；
+对radix进行计数排序（利用计数排序适用于小范围数的特点）；
+
+基数排序基于分别排序，分别收集，所以是稳定的。但基数排序的性能比桶排序要略差，每一次关键字的桶分配都需要O(n)的时间复杂度，而且分配之后得到新的关键字序列又需要O(n)的时间复杂度。假如待排数据可以分为d个关键字，则基数排序的时间复杂度将是O(d*2n) ，当然d要远远小于n，因此基本上还是线性级别的。
+
+基数排序的空间复杂度为O(n+k)，其中k为桶的数量。一般来说n>>k，因此额外空间需要大概n个左右
 */
 func radixSort(nums []int) []int {
-	var mod int = 10
-	var dev int = 1
-	var max int = 99999
-	var counter [][]int = make([][]int, 10)
-	for i := 0; i < max; i++ {
-
-		for j := 0; j < len(nums); j++ {
-
-			bucket := (nums[j] % mod) / dev
-			fmt.Println(nums[j], mod, dev, bucket)
-			if counter[bucket] == nil {
-				counter[bucket] = make([]int, 10)
-			}
-			counter[bucket] = append(counter[bucket], nums[j])
+	//获取最大值vl
+	vl := 0
+	for _, v := range nums {
+		if v > vl {
+			vl = v
 		}
-		dev *= 10
-		mod *= 10
+	}
+	//获取最大值的位数
+	var count int = 0
+	for vl%10 > 0 {
+		vl = vl / 10
+		count++
 	}
 
+	//给桶中对应的位置放数据
+	for i := 0; i < count; i++ {
+		theData := int(math.Pow10(i)) //10的i次方
+		//建立空桶
+		var bucket [10][10]int
+		for k := 0; k < len(nums); k++ {
+			theResidue := (nums[k] / theData) % 10 //取余
+			var childArray [10]int                 //= bucket[theResidue];//获取子数组
+			for m := 0; m < 10; m++ {
+				if bucket[theResidue][m] == 0 {
+					childArray[m] = nums[k]
+					bucket[theResidue][m] = childArray[m]
+					break
+				} else {
+					continue
+				}
+			}
+		}
+		//一遍循环完之后需要把数组二维数据进行重新排序，比如数组开始是10 1 18 30 23 12 7 5 18 233 144 ，循环个位数
+		//循环之后的结果为10 30 1 12 23 233 144 5 7 18 18 ，然后循环十位数，结果为1 5 7 10 12 18 18 23 30 233 144
+		//最后循环百位数，结果为1 5 7 10 12 18 18 23 30 144 233
+		var x = 0
+		slice := make([]int, len(nums))
+		for p := 0; p < len(bucket); p++ {
+			for q := 0; q < len(bucket[p]); q++ {
+				if bucket[p][q] != 0 {
+					slice[x] = bucket[p][q]
+					x++
+				} else {
+					break
+				}
+			}
+		}
+
+		for key, value := range slice {
+			nums[key] = value
+		}
+	}
 	return nums
+
 }
+
+// todo TIM 排序
