@@ -19,8 +19,8 @@ func maxProfit(prices []int) int {
 	dp[0][1] = -prices[0] //持有股票
 
 	for i := 1; i < len(prices); i++ {
-		dp[i][0] = max(dp[i-1][0], dp[i-1][1]+prices[i]) //有现金,买
-		dp[i][1] = max(dp[i-1][1], dp[i-1][0]-prices[i]) //有股票,卖
+		dp[i][0] = max(dp[i-1][0], dp[i-1][1]+prices[i]) //现金
+		dp[i][1] = max(dp[i-1][1], dp[i-1][0]-prices[i]) //股票
 		//fmt.Println(dp[i])
 	}
 	return dp[len(dp)-1][0]
