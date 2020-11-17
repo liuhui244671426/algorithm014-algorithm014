@@ -15,8 +15,8 @@ func maxProfit(prices []int) int {
 	}
 	//是否持有股票时的现金数
 	//状态转移：cash → hold → cash → hold → cash → hold → cash
-	dp[0][0] = 0          //持有现金
-	dp[0][1] = -prices[0] //持有股票
+	dp[0][0] = 0          //现金
+	dp[0][1] = -prices[0] //股票
 
 	for i := 1; i < len(prices); i++ {
 		dp[i][0] = max(dp[i-1][0], dp[i-1][1]+prices[i]) //现金
