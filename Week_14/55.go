@@ -1,7 +1,5 @@
 package Week_14
 
-import "fmt"
-
 //55.跳跃游戏
 
 func CanJump() bool {
