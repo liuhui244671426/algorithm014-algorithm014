@@ -53,6 +53,7 @@ func solve(result *[][]string, chess [][]string, row int) {
 		//可以放 Q
 		if valid(chess, row, col) {
 			//老生常谈,回溯
+			//空间可以再压缩,比如使用 bit
 			chess[row][col] = "Q"
 			solve(result, chess, row+1)
 			chess[row][col] = "."
