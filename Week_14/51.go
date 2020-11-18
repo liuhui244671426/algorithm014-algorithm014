@@ -6,6 +6,7 @@ import (
 
 //51. N 皇后
 //todo 2020.10.27 done
+//done 2020.11.18
 func SolveNQueens() [][]string {
 	var n int = 8
 	return solveNQueens(n)
