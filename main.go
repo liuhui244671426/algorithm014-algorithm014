@@ -1,0 +1,109 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+
+	// b := w4.Subsets([]int{1, 2, 3})
+	// b := w4.LevelOrder()
+	// b := w4.LargestValues()
+	// b := w4.GenerateParenthesis()
+	// b := w4.NumIslands()
+	// b := w4.MaxProfit()
+	// b := w4.CanJump()
+	// b := w4.LemonadeChange()
+	// b := w4.Search()
+	// b := w4.SearchMatrix()
+	// b := w4.FindMin()
+	// b := w4.FindContentChildren()
+	// b := w5.RobotSim()
+	// b := w5.SubarraySum()
+	// b := w5.MaxSubArray()//todo 理解
+	// b := w5.LongestCommonSubsequence()
+	// b := w6.Jump()
+	// b := w6.MinPathSum()
+	// b := w6.CoinChange() //经典例题,需要反复练习理解
+	// b := w6.UniquePaths()
+	// b := w6.UniquePathsWithObstacles()
+	// b := w6.LongestCommonSubsequence() //最长共公序列字符串 todo 理解
+	// b := w6.Preorder()
+	// b := w6.MinimumTotal()
+	// b := w6.ClimbStairs()
+	// b := w6.Rob() // todo coding
+	// b := w6.SumOfLeftLeaves()
+	// b := w7.SearchMatrix()
+	// b := w7.LevelOrder()
+	// b := w7.Rob()//todo debug
+	// b := w7.Solve() //todo debug
+	// b := w7.MergeTrees()//合并树,需要多做
+	// b := w7.FindCircleNum()
+	// b := w7.NumIslands()
+	// b := w7.GenerateParenthesis()
+	// b := w7.LadderLength()//todo 优化,提交 超时
+	// b := w8.SolveSudoku() //todo think
+	// b := w8.HammingWeight()
+	// b := w8.PostorderTraversal()
+	// b := w8.Sort()
+	// b:=w8.IsAnagram()
+	// b := w9.UniquePaths()
+	// b := w9.Rob()
+	// b := w9.UniquePathsWithObstacles()
+	// b := w9.MinPathSum()
+	// b := w9.MaxProfit123()
+	// b := w9.FirstUniqChar()
+	// b := w9.LengthOfLIS()
+	// b := w9.MinDistance()
+	// b := w9.LongestPalindrome()
+	// b := w9.LongestValidParentheses() //todo debug
+	// b := w9.ValidPalindrome()
+	// b := w10.ReverseOnlyLetters()
+	// b := w10.ReverseWords()
+	// b := w10.LargestRectangleArea()
+	// b := w10.IsValid()
+	// b := w10.CoinChange()
+	// b := w10.SearchMatrix()
+	// b := w10.SolveNQueens() todo code
+	// b := w10.IsPalindrome()
+	// b := w10.SpiralOrder()
+	// b := w10.NumDecodings()
+	// b := w10.LadderLength()
+	// b := w11.LemonadeChange()
+	// b := w11.CanJump()
+	// b := w11.SmallerNumbersThanCurrent()
+	// b := w08.Sort()
+	// b := w11.PathSum()
+	// b := w11.UniqueOccurrences()
+	// b := w11.PreorderTraversal()
+	// b := w11.Solve()//todo coding
+	// b := w11.IslandPerimeter()
+	// b := w12.Intersection()
+	// b := w12.ValidMountainArray()
+	// b := w12.FindTheDifference()
+	// b := w12.MaxDepth()
+	// b := w12.HasPathSum()
+	// b := w13.GenerateParenthesis()
+	// b := w13.MyPow()
+	// b := w13.Subsets()
+	// b := w13.MajorityElement()
+	// b := w13.LetterCombinations()
+	// b := w13.Combine()
+	// b := w13.MinCostClimbingStairs()
+	// b := w13.Permute()
+	// b := w13.PermuteUnique()//todo debug
+	// b := w14.LevelOrder()
+	// b := w14.FindContentChildren()
+	// b := w14.MaxSubArray()
+	// b := w14.MaxProfit()
+	// b := w14.CanJump()
+	// b := w14.IsPerfectSquare()
+	// b := w14.SolveNQueens()
+	// b := w14.GenerateParenthesis()
+	// b := w14.LargestValues()
+	// b := w14.MinMutation()//todo code
+	// b := w14.NumIslands()
+	// b := w14.UpdateBoard() //扫雷的题没看懂....
+	b := 1
+	fmt.Println("result: ", b)
+}
